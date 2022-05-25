@@ -1,6 +1,6 @@
+import styles from "./Header.module.css"
 import Title from "../title/Title"
 import Subtitle from "../subtitle/Subtitle"
-import styles from "./Header.module.css"
 import Icon from "../icon/Icon"
 
 
