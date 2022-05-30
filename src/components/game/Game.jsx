@@ -39,7 +39,7 @@ function Game(){
 
   const handleReset = () => {
     setGameState(Array(9).fill(0))
-    setWinner(0)
+    setWinner(0)      
   }
 
   useEffect(()=>{

@@ -4,7 +4,7 @@ import Button from "../button/Button"
 
 function GameInfo({currentP, win, onReset}){
 
-  const shouldEnableButton  = () => {
+  const shouldEnableButton = () => {
       if(win !== 0){
           return true
       }
@@ -34,14 +34,11 @@ function GameInfo({currentP, win, onReset}){
           {
             win === -1 && <Icon iconName="x" />
           }
-          {
-            <Button onClick={onReset} disabled={!shouldEnableButton()}>
-               Reiniciar
-            </Button>
-          }
         </>
       }
-   
+      <Button onClick={onReset} disabled={!shouldEnableButton()}>
+          Reiniciar
+      </Button>
     </div>
   )
 }
