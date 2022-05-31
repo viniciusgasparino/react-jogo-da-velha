@@ -2,18 +2,22 @@ import styles from "./GameInfo.module.css"
 import Icon from "../icon/Icon"
 import Button from "../button/Button"
 
-function GameInfo({currentP, win, onReset}){
+function GameInfo({currentP, win, onReset,isDraw}){
 
   const shouldEnableButton = () => {
       if(win !== 0){
           return true
       }
+
+      if(isDraw){
+        return true
+    }
   }
 
   return(
     <div className={styles.gameInfo}>
       {
-        win === 0 && 
+        !isDraw && win === 0 && 
         <>
           <h4>Próximo a jogar:</h4>
             {
@@ -25,7 +29,7 @@ function GameInfo({currentP, win, onReset}){
         </>
       }
       {
-        win !== 0 &&
+         !isDraw && win !== 0 &&
         <>
           <h4>Fim de jogo! Campeão:</h4>
           {
@@ -36,6 +40,10 @@ function GameInfo({currentP, win, onReset}){
           }
         </>
       }
+      {
+        isDraw && <h4>Empate!</h4>
+      }
+     
       <Button onClick={onReset} disabled={!shouldEnableButton()}>
           Reiniciar
       </Button>
