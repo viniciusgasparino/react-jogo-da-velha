@@ -2,7 +2,7 @@ import styles from "./GameInfo.module.css"
 import Icon from "../icon/Icon"
 import Button from "../button/Button"
 
-function GameInfo({currentP, win, onReset,isDraw}){
+function GameInfo({currentP, win, onReset, isDraw}){
 
   const shouldEnableButton = () => {
       if(win !== 0){

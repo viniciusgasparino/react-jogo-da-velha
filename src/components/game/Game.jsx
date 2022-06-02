@@ -20,7 +20,7 @@ function Game(){
   const [winner,setWinner] = useState(0)
   const [winnerLine, setWinnerLine] = useState([])
   const [draw, setDraw] = useState(false)
-
+      
   const handleClick = (pos) => {
     if(gameState[pos] === 0 && winner === 0){
       let newGameState = [...gameState]
@@ -42,8 +42,8 @@ function Game(){
 
   const handleReset = () => {
     setGameState(Array(9).fill(0))
-    setWinner(0)  
-    setWinnerLine([])  
+    setWinner(0)            
+    setWinnerLine([])     
     setDraw(false)  
   }
 
@@ -82,7 +82,7 @@ function Game(){
             isDraw={draw} 
           />
         })      
-      }
+      }       
        </div>
        <GameInfo 
           currentP={currentPlayer}
