@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import styles from "./Game.module.css"
 import GameOption from "../gameOption/GameOption"
 import GameInfo from "../gameInfo/GameInfo"
+import Score from "../score/Score"
+
 
 const winnerTable = [
   [0,1,2],
@@ -70,27 +72,30 @@ function Game(){
   },[winner])
 
   return(
-    <div className={styles.gameContent}>
-       <div className={styles.game}>
-      {         
-        gameState.map((value,pos)=>{
-          return <GameOption
-            key={`game-option-pos-${pos}`}
-            status={value}
-            onClick={() => handleClick(pos)}
-            isWinner={verifyWinnerLine(pos)}
-            isDraw={draw} 
-          />
-        })      
-      }       
-       </div>
-       <GameInfo 
-          currentP={currentPlayer}
-          win={winner}
-          onReset={handleReset}
-          isDraw={draw}
-       /> 
-    </div>
+    <>
+      <div className={styles.gameContent}>
+        <div className={styles.game}>
+        {         
+          gameState.map((value,pos)=>{
+            return <GameOption
+              key={`game-option-pos-${pos}`}
+              status={value}
+              onClick={() => handleClick(pos)}
+              isWinner={verifyWinnerLine(pos)}
+              isDraw={draw} 
+            />
+          })      
+        }       
+        </div>
+        <GameInfo 
+            currentP={currentPlayer}
+            win={winner}
+            onReset={handleReset}
+            isDraw={draw}
+        /> 
+      </div>
+      <Score/>
+    </>
   )
 }
 
